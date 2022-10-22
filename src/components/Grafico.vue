@@ -7,7 +7,7 @@
       <rect
         v-bind:x="x_value"
         v-bind:y="y_value"
-        v-bind:width="value * 20"
+        v-bind:width="barWidth(value)"
         v-bind:height="h_value"
         v-bind:fill="color"
       />
@@ -36,6 +36,9 @@ export default {
       h_value: 12,
       w_value: 150,
     }
+  },
+  methods: {
+    barWidth(value) { return value * 20 }
   },
 }
 
