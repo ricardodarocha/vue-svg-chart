@@ -4,14 +4,16 @@
       <g 
       v-for="(value, i) in serie1" v-bind:key="i" 
       :transform="`translate(0, ${i * 16})`">
-      <rect
-        v-bind:x="x_value"
-        v-bind:y="y_value"
-        v-bind:width="barWidth(value)"
-        v-bind:height="h_value"
-        v-bind:fill="color"
-      />
-      <text y="15">{{value}} {{key}}</text>
+      <transition>
+        <rect v-on:click="sort()"
+          v-bind:x="x_value"
+          v-bind:y="y_value"
+          v-bind:width="barWidth(value)"
+          v-bind:height="h_value"
+          v-bind:fill="color"
+        />
+        <text y="15">{{value}} {{key}}</text>
+      </transition>
     </g>
     </svg>
   </div>
@@ -38,7 +40,11 @@ export default {
     }
   },
   methods: {
-    barWidth(value) { return value * 20 }
+    barWidth(value) { return value * 20 },
+    sort() {
+      let x = this.serie1.shift(); 
+      this.serie1.push(x);
+    },
   },
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Grafico w=600 h=400 color="#f0b305" />
+    <Grafico w=600 h=400 color="#42b983" />
   </div>
 </template>
 
